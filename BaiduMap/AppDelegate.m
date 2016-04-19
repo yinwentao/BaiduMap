@@ -17,7 +17,36 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [_mapManager start:MAP_KEY generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
     return YES;
+
+}
+
+- (void)onGetNetworkState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"联网成功");
+    }
+    else{
+        NSLog(@"onGetNetworkState %d",iError);
+    }
+    
+}
+
+- (void)onGetPermissionState:(int)iError
+{
+    if (0 == iError) {
+        NSLog(@"授权成功");
+    }
+    else {
+        NSLog(@"onGetPermissionState %d",iError);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
