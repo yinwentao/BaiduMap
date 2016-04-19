@@ -10,6 +10,7 @@
 
 @interface ViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
+    // mapview
     BMKMapView* _mapView ;
     BMKLocationService *_locService;// 定位
 }
