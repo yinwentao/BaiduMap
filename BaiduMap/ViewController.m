@@ -13,6 +13,7 @@
     // 百度地图
     BMKMapView* _mapView ;
     BMKLocationService *_locService;// 定位
+    // 测试
 }
 @end
 
