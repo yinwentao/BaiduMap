@@ -10,7 +10,7 @@
 
 @interface ViewController ()<BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
-    // mapview
+    // 百度地图
     BMKMapView* _mapView ;
     BMKLocationService *_locService;// 定位
 }
@@ -23,6 +23,7 @@
     // Do any additional setup after loading the view, typically from a nib
     _mapView = [[BMKMapView alloc]initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height-49-64)];
     _mapView.delegate = self;
+    
     //切换为普通地图
     [_mapView setMapType:BMKMapTypeStandard];
     _mapView.showMapScaleBar = YES;
